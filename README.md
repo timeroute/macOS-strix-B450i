@@ -2,95 +2,67 @@
 	<img src="https://ibin.co/52IbeCHLerMK.png"/>
 </p>
 
-<p align="center">
+<p>
 	<img src="https://ibin.co/4wROyHBs3PAE.png" width="383" height="46"/>
 </p>
 
-⚠️ **OpenCore is still in beta. Please keep this in mind.**
+Tested with macOS 11.0.1 - later versions have not been tested. This EFI isn't guaranteed to work flawlessly with your hardware... but it can be used as a starting point to aid getting your hackintosh up and running. Feel free to join my Telegram [channel](https://t.me/macOSstrixB450i).
 
-🛎 **Join the Telegram [Channel](https://t.me/macOSstrixB450i) for notifications about updates.**
+You will need to [flush a new SMBIOS](https://dortania.github.io/OpenCore-Desktop-Guide/AMD/zen.html#platforminfo) if you want to use iCloud services. The included SMBIOS has been blacklisted and may result in a suspended iCloud account if you choose to use it.
 
-Tested with macOS 10.15.5 SU with OpenCore 0.5.9 - any later versions of macOS and OpenCore have not yet been tested, so use them at your own risk. This configuration works with iCloud services, but it's **strongly recommended** to [flush a new SMBIOS.](https://dortania.github.io/OpenCore-Desktop-Guide/AMD/zen.html#platforminfo) Using the included one could result in a permanently banned Apple ID, which I can't be held responsible for.
-
-## System Specification
-
-* **Motherboard:** ASUS ROG Strix B450-I
-	* Networking: Intel I211-AT
-	* Audio: SupremeFX S1220A (ALC Layout 7)
-	* Wireless: Realtek 8822BE (Stock)
-
-* **CPU:** AMD Ryzen 5 2600X
-* **GPU:** Sapphire Nitro+ Radeon RX 580 8GB
-
-Dual-booted with Windows 10. OpenCore installed on macOS SSD and set as primary boot device for OpenCanopy.
+If you're able to, please consider [donating to AMD OSX.](https://forum.amd-osx.com/index.php?dbtech-donate/drives/amd-os-x.1/donate) Without the team, this fun project wouldn't be possible!
 
 
-## BIOS Settings
-**For the best results, load *optimised defaults* and change the following options;**
 
-#### Boot
+## System Specs
 
-* Fast Boot -> Disabled
-* CSM -> Launch CSM -> Disabled
-* Secure Boot -> OS Type -> Windows UEFI
+* **Motherboard:** Asus Strix B450-I
+	* LAN: Intel I211-AT
+	* Audio: SupremeFX S1220A
+	* Wireless: Realtek 8822BE
+	* SSD: Sabrent Rocket 1TB NVMe
 
-#### Advanced
-* USB Configuration -> XHCI Hand-off -> Enabled
+* **Processor:** AMD Ryzen 5 2600X
+* **Graphics:** Sapphire Nitro+ AMD Radeon RX 580 8GB
 
-**Ryzen G CPUs using integrated audio:**
+## Reccomended BIOS Settings
 
-* Core Performance Boost -> Disabled
+Tested with BIOS v3004 - using the latest BIOS can reduce chances of issues.
 
-These settings were tested with BIOS v3004 (27/12/2019) - use the latest available version of your BIOS to mitigate any issues (in general).
+**Boot**
 
-## Known Issues
+* Fast Boot → Disabled
+* CSM → Launch CSM → Disabled
+* Secure Boot → OS Type → Windows UEFI
 
-**Internal WiFi & Bluetooth are not supported by macOS.**
+> Set OS Type to "Other" if you're having issues booting the macOS installer.
 
-* **Solution:** The internal wireless card can be replaced with a macOS compatible one (e.g Dell DW1820A). I haven't tried this myself, but there are reports of it working.
+**Advanced**
 
-**Line-in microphones may not appear.**
+* USB Configuration → XHCI Hand-off → Enabled
 
-* **Solution:** AppleALC has minimal support for line-in microphones on Ryzen/TR CPUs. Buying a USB adapter seems to be the best option at this time.
+* Core Performance Boost → Disabled
 
-**Discord stuck in a crash loop.**
+> Ryzen G CPUs only - helps reduce audio crackling but won't fix it.
 
-* **Solution:** [Fix here](https://discordapp.com/channels/249992304503291905/263798638373896203/717912500498333746) (Method 2 worked for me)
+## Issues
+
+**Internal WiFi & Bluetooth is not supported by macOS.**
+
+* **Workaround:** The internal wireless card can be replaced with one that is compatible with macOS.
+
+**Line-in microphones may not work.**
+
+* **Workaround:** AppleALC does not support line-in microphones. Currently, the best option is to purchase a USB adapter.
 
 **Unable to wake from sleep.**
 
-* **Solution:** No fix at the moment.
+* **Workaround:** [More details.](https://github.com/willza3/macOS-strix-B450i/issues/13#issuecomment-642053047) Thank you @conchodaus!
 
-Sleep and Wake does not work if:
+**Unable to open Discord.**
 
-* USB 2.0 device plugged into the motherboard's USB 3.1 I/O ports.
-* USB 2.0 device connected to a USB 3.0 hub and plugged into the motherboard's USB 3.1 I/O port, Sleep works if only the hub is plugged into a USB 2.0 I/O port.
-* Auto sleep and hibernate won't work if an external mechanical hard drive is mounted in macOS.
+* **Fix:** [Link](https://discordapp.com/channels/249992304503291905/263798638373896203/717912500498333746)
 
-**Please report any issues you find [here.](https://github.com/willza3/macOS-strix-B450i/issues)**
-
-## Guides & Links
-
-#### Guides
-
-* [OpenCore Vanilla Desktop Guide](https://dortania.github.io/OpenCore-Desktop-Guide)
-
-* [Catalina GPU Guide](https://khronokernel-3.gitbook.io/catalina-gpu-buyers-guide/)
-
-* [Snazzy Labs' OpenCore Guide](https://youtu.be/l_QPLl81GrY)
-
-#### Links
-
-* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg)
-
-* [OpenCore Sanity Checker](https://opencore.slowgeek.com)
-
-#### Apps
-
-* [AMD Power Gadget](https://github.com/trulyspinach/SMCAMDProcessor/releases)
-
-* [External­Display­Brightness](https://github.com/fnesveda/ExternalDisplayBrightness/releases)
-
-**Last Updated:** 4 June 2020
+**Last Updated:** 14 November 2020
 
 🌀
